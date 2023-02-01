@@ -1064,7 +1064,7 @@ static MQTTStatus_t discardPacket( const MQTTContext_t * pContext,
             elapsedTimeMs = calculateElapsedTime( getTimeStampMs(), entryTimeMs );
 
             /* Check for timeout. */
-            if( elapsedTimeMs >= timeoutMs )
+            if( elapsedTimeMs >= timeoutMs && timeoutMs != 0 )
             {
                 LogError( ( "Time expired while discarding packet." ) );
                 receiveError = true;
